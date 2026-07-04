@@ -1,0 +1,33 @@
+{% extends './base.html' %}
+{% block title %}Clientes{% endblock %}
+{% block content %}
+
+<h1>Clientes MYSQL</h1><button onclick="jsModalCrearUsuario()" class="btn btn-primary mb-3">Nuevo +</button>
+<a class="btn btn-secondary text-nowrap" href="{{ url_for('home') }}">Ir a la página principal</a>
+<table class="table table-striped table-dark">
+    <thead>
+        <tr class="align-middle">
+            <th scope="col">ID</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Contraseña</th>
+            <th scope="col">Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for cliente in Clientes %}
+        <tr>
+            <th scope="row">{{cliente.0}}</th>
+            <td>{{cliente.1}}</td>
+            <td>{{ cliente.2|truncate(20) }}</td>
+            <td>
+                <button type="button" class="btn btn-warning" onclick="jsModalEditarUsuario('{{cliente.0}}', '{{cliente.1|e}}', '{{cliente.3|e}}')">Editar</button>
+                <button type="button" class="btn btn-danger" onclick="jsEliminarUsuarioConfirm('{{cliente.0}}')">Eliminar</button>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+
+
+{% endblock %}

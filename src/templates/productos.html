@@ -1,0 +1,47 @@
+{% extends './base.html' %}
+{% block title %}Productos{% endblock %}
+{% block content %}
+<div class="container text-center">
+    <h1 class="display-6 fw-bold" >PLANTILLA PRODUCTOS </h1>
+    <a class="btn btn-secondary text-nowrap" href="{{ url_for('home') }}">Ir a la página principal</a>
+</div>
+
+<div id="carouselExampleDark" class="carousel carousel-dark slide">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active" data-bs-interval="10000">
+      <img src="{{ url_for('static', filename='images/ferrari.jpg') }}"  class="d-block img-fluid mx-auto" style="max-height: 1000px;" alt="Ferrari 12Cilindri">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Ferrari 12Cilindri</h5>
+        <p>Con su motor V12 sin igual, su diseño impresionante y su tecnología de vanguardia, este modelo está listo para conquistar las carreteras del mundo y dejar una huella imborrable en el legado de Ferrari.</p>
+      </div>
+    </div>
+    <div class="carousel-item" data-bs-interval="2000">
+      <img src="{{ url_for('static', filename='images/lamborghini.jpg') }}" class="d-block img-fluid mx-auto" style="max-height: 1000px;" alt="Lamborghini Aventador">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Lamborghini Aventador</h5>
+        <p>Con su diseño agresivo y su motor V12 de alto rendimiento, el Aventador es un ícono de la automoción italiana y una máquina de carreras que combina estilo, potencia y tecnología de vanguardia.</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="{{ url_for('static', filename='images/bugatti.jpg') }}" class="d-block img-fluid mx-auto" style="max-height: 1000px;" alt="Bugatti Chiron">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Bugatti Chiron</h5>
+        <p>Con su motor W16 de alto rendimiento y su diseño aerodinámico, el Chiron es una máquina de carreras que combina potencia, velocidad y tecnología de vanguardia.</p>
+      </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+{% endblock %}
