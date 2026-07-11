@@ -3,6 +3,9 @@ from flask_mysqldb import MySQL
 from flask_wtf import CSRFProtect
 from werkzeug.security import generate_password_hash
 from flask_login import LoginManager, login_user, logout_user, login_required
+import os
+from src.config import config
+
 
 
 from config import config
@@ -13,7 +16,8 @@ from models.entities.User import User
 
 app = Flask(__name__)
 
-app.config.from_object(config['development'])
+enviroment = config[os.environ.get('FLASK_ENV', 'development')]
+app.config.from_object(enviroment)
 
 db = MySQL(app)
 login_manager_app = LoginManager(app)
