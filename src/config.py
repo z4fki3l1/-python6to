@@ -3,10 +3,10 @@ class config:
 
 class DevelopmentConfig(config):
     DEBUG = True
-    MYSQL_HOST = 'localhost'
-    MYSQL_USER = 'root'
-    MYSQL_PASSWORD = ''
-    MYSQL_DB = 'tienda2'
+    MYSQL_HOST = 'sql5.freesqldatabase.com'
+    MYSQL_USER = 'sql5832801'
+    MYSQL_PASSWORD = '71xXPsVqgM'
+    MYSQL_DB = 'sql5832801'
 
 
 config = {

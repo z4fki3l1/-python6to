@@ -31,78 +31,21 @@ function jsVentanaModal(Titulo,Header,Contenido,Botones){
 	///////////// B O T O N E S ///////////////	
 	ContenidoModal += '</div>';
 	ContenidoModal += '</div>';
-	ContenidoModal += '</div>'; // cierre innerModal
+	ContenidoModal += '</div>';
 	MODAL.innerHTML = ContenidoModal;
 
 	var modalEl = document.getElementById('innerModal');
-	var dialogEl = modalEl.querySelector('.modal-dialog');
-	var headerEl = modalEl.querySelector('.modal-header');
 	var myModal = new bootstrap.Modal(modalEl, {
 		keyboard: true,
 		backdrop: 'static'
 	});
 	myModal.show();
-
-	// Implementación nativa de arrastre (drag) sobre el header
-	(function(){
-		var isDown = false;
-		var startX = 0, startY = 0;
-		var origLeft = 0, origTop = 0;
-
-		function getStyleNumber(el, prop){
-			return parseFloat(window.getComputedStyle(el)[prop]) || 0;
-		}
-
-		function onDown(e){
-			isDown = true;
-			e = e.type.startsWith('touch') ? e.touches[0] : e;
-			startX = e.clientX;
-			startY = e.clientY;
-
-			// compute current left/top in pixels
-			var rect = dialogEl.getBoundingClientRect();
-			// convert to document coordinates
-			origLeft = rect.left + window.scrollX;
-			origTop = rect.top + window.scrollY;
-
-			// remove transform to allow direct positioning
-			dialogEl.style.transform = 'none';
-			dialogEl.style.left = (origLeft) + 'px';
-			dialogEl.style.top = (origTop) + 'px';
-			dialogEl.style.position = 'absolute';
-			dialogEl.style.margin = '0';
-
-			document.addEventListener('mousemove', onMove);
-			document.addEventListener('mouseup', onUp);
-			document.addEventListener('touchmove', onMove, {passive:false});
-			document.addEventListener('touchend', onUp);
-			e.preventDefault && e.preventDefault();
-		}
-
-		function onMove(e){
-			if(!isDown) return;
-			e = e.type.startsWith('touch') ? e.touches[0] : e;
-			var dx = e.clientX - startX;
-			var dy = e.clientY - startY;
-			dialogEl.style.left = (origLeft + dx) + 'px';
-			dialogEl.style.top = (origTop + dy) + 'px';
-			e.preventDefault && e.preventDefault();
-		}
-
-		function onUp(e){
-			if(!isDown) return;
-			isDown = false;
-			document.removeEventListener('mousemove', onMove);
-			document.removeEventListener('mouseup', onUp);
-			document.removeEventListener('touchmove', onMove);
-			document.removeEventListener('touchend', onUp);
-		}
-
-		if(headerEl && dialogEl){
-			headerEl.addEventListener('mousedown', onDown);
-			headerEl.addEventListener('touchstart', onDown, {passive:false});
-		}
-	})();
+	
+	if (!$(".modal.in").length) { // reacomoda el modal en la pantalla de inicio.
+        $(".modal").css({
+            inset: "revert-layer"
+        });
+    }
 }
 
 function jsModalCrearUsuario(){

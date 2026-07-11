@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 blinker==1.9.0
 click==8.4.1
 colorama==0.4.6
@@ -30,3 +31,6 @@ six==1.17.0
 virtualenv==21.5.1
 Werkzeug==3.1.8
 WTForms==3.2.2
+=======
+
+>>>>>>> 476f0cbfee0be8fa4918423637cd724688ad4fc3
