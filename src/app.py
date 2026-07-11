@@ -13,6 +13,8 @@ from models.entities.User import User
 
 app = Flask(__name__)
 
+app.config.from_object(config['development'])
+
 db = MySQL(app)
 login_manager_app = LoginManager(app)
 csrf = CSRFProtect()
