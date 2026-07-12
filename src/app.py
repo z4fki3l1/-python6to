@@ -21,7 +21,16 @@ app.config.from_object(enviroment)
 
 db = MySQL(app)
 login_manager_app = LoginManager(app)
-csrf = CSRFProtect()
+csrf = CSRFProtect(app)
+
+def status_401(error):
+    return redirect(url_for('login'))
+
+def status_404(error):
+    return "<h1>Página no encontrada</h1>", 404
+
+app.register_error_handler(401, status_401)
+app.register_error_handler(404, status_404)
 
 @login_manager_app.user_loader
 def load_user(id):
