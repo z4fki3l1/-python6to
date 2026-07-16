@@ -19,6 +19,7 @@ app = Flask(__name__)
 enviroment = config[os.environ.get('FLASK_ENV', 'development')]
 app.config.from_object(enviroment)
 
+
 db = MySQL(app)
 login_manager_app = LoginManager(app)
 csrf = CSRFProtect(app)
